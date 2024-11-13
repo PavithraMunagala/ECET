@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Divisions</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Making sure the body takes full height of the viewport */
+    }
+
+    .container {
+        text-align: center; /* Aligning the contents of the container */
+    }
+
+    .container > div {
+        margin-bottom: 20px; /* Adding some space between divisions */
+    }
+
+    .div-1,
+    .div-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fefefe;
+        border-radius: 10px;
+        width: 180px;
+        height: 50px; /* Could be more or less, depending on screen size */
+        /* box-shadow: 5px 5px 9px #5e687049, -5px -5px 9px #5e687049; */
+        box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+            4px 4px 10px rgba(0, 0, 0, 0.2), /* Highlight shadow on the top-left */
+            4px 4px 10px rgba(255, 255, 255, 0.7), /* Highlight shadow on the bottom-right */
+            6px 6px 20px rgba(255, 255, 255, 0.7), /* Main shadow on the bottom-right */
+            inset 4px 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: default;
+        opacity: 0;
+        animation: slideLeft 2s ease forwards; 
+    }
+    .div-2,
+    .div-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fefefe;
+        border-radius: 10px;
+        width: 180px;
+        height: 50px; /* Could be more or less, depending on screen size */
+        /* box-shadow: 5px 5px 9px #5e687049, -5px -5px 9px #5e687049; */
+        box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+            4px 4px 10px rgba(0, 0, 0, 0.2), /* Highlight shadow on the top-left */
+            4px 4px 10px rgba(255, 255, 255, 0.7), /* Highlight shadow on the bottom-right */
+            6px 6px 20px rgba(255, 255, 255, 0.7), /* Main shadow on the bottom-right */
+            inset 4px 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        animation: slideRight 2s ease forwards; 
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+        .submit-button {
+            
+            
+            padding: 10px 20px;
+            color: #AD88C6;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            
+        }
+</style>
+</head>
+<body>
+    
+<div class="container">
+    <div class="div-1">
+        <p><button id="myButtonM" class="submit-button">MATHEMATICS</button>
+</p>
+    </div>
+
+    <div class="div-2">
+        <p><button id="myButtonP" class="submit-button">PHYSICS</button>
+    </div>
+
+    <div class="div-3">
+        <p><button id="myButtonC" class="submit-button">CHEMISTRY</button>
+    </div>
+    
+    <div class="div-4">
+        <p><button id="myButtonCM" class="submit-button">COMPUTERS</button>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    document.getElementById("myButtonM").onclick = function () {
+        location.href = "MathsFetch.jsp";
+    };
+    document.getElementById("myButtonP").onclick = function () {
+        location.href = "PhyFetch.jsp";
+    };
+    document.getElementById("myButtonC").onclick = function () {
+        location.href = "ChemFetch.jsp";
+    };
+    document.getElementById("myButtonCM").onclick = function () {
+        location.href = "CM_CoreFetch.jsp";
+    };
+</script>
+</body>
+</html>

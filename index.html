@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/style.css">
+<style>
+  body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("Images/persistence.png");
+  height: 100%; /* You must set a specified height */
+  width: 100%; 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+
+h1 {
+  font-size: clamp(3rem, 15vmin, 8rem);
+  font-family: sans-serif;
+  color: hsl(0 0% 98%);
+}
+
+.underlined {
+/*   background: red; */
+  position: relative;
+}
+
+.underline-mask:after {
+  content: '';
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid hsl(280 80% 50%);
+  /* Use a conic gradient mask to hide and show the bits you want */
+  --spread: 140deg;
+  --start: 290deg;
+  mask: conic-gradient(from var(--start), white 0 var(--spread), transparent var(--spread));
+}
+
+
+.underline-overflow {
+  display: inline-block;
+  /* A little extra padding and overflow hidden   */
+  overflow: hidden;
+  padding-bottom: clamp(1rem, 2vmin, 2rem);
+}
+.underline-overflow:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 150%;
+  aspect-ratio: 2.5 / 1;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  border-radius: 50%;
+  border: 6px solid hsl(10 80% 50%);
+}
+
+.underline-clip:after {
+  content: '';
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid hsl(130 80% 50%);
+  /* Use a clip-path to hide and show the bits you want */
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+.tophead{
+  /* overflow: hidden; */
+  /* background-image: url("logo.jpg"); */
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  gap: 180px;
+}
+
+.tophead .vishnulogo{
+}
+
+.tophead .title{
+}
+
+.tophead .bvrs{
+}
+
+.topnav{
+  overflow: hidden;
+  background-color: rgb(0, 157, 255);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.Faculty:hover .submenu {
+  display: block;
+}
+
+.Mocktest:hover .submenuu {
+  display: block;
+}
+
+.submenu{
+  position: absolute;
+  top: 160.8px;
+  left: 710px;
+  line-height: 18px;
+  background: rgb(0, 157, 255);
+  height: 150px;
+  width: 50px;
+  display: none;
+  
+}
+
+.submenuu{
+  position: absolute;
+  top: 160.8px;
+  left: 820px;
+  line-height: 18px;
+  background: rgb(0, 157, 255);
+  height: 150px;
+  width: 50px;
+  display: none;
+  
+}
+
+.topnav ul li{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.Faculty .submenu:hover {
+  display: block;
+}
+
+.Mocktest:hover {
+  display: block;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2f71b2;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown.mocktest .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content.mock-contentt {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content.mock-contentt a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.topnav a:hover, .mocktest:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content.mock-contentt a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.mocktest:hover .dropdown-content.mock-contentt {
+  display: block;
+}
+</style>
+</head>
+<body>  
+<div class="tophead">
+    <div class="vishnulogo"><img src="Images/vishnu_2.jpg" height="130px" width="130"></div>
+  <div class="title"><img src="Images/heading.jpg" alt="" height="130px" width="300px"></div>
+  <div class="bvrs"><img src="Images\bvw.jpg" height="130px" width="190px"></div>
+</div>
+<div class="topnav" id="myTopnav">
+  <a href="#home">Home</a>
+  <a href="About.html">About</a>
+    <div class="dropdown">
+    <button class="dropbtn">Faculty</button>
+    <div class="dropdown-content">
+      <a href="Fcme.html">CME</a>
+      <a href="Fece.html">ECE</a>
+      <a href="Feee.html">EEE</a>
+    </div>
+  </div>
+    <div class="dropdown mocktest">
+    <button class="dropbtn">Mock Test</button>
+    <div class="dropdown-content mock-contentt">
+      <a href="Scme.html">CME</a>
+      <a href="Sece.html">ECE</a>
+      <a href="Seee.html">EEE</a>
+    </div>
+  </div>
+  <a href="Contact.html">Contact</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+    <div>
+     <h1>Persevar<span class="underlined underline-clip">ence</span>
+    <br>Pa<span class="underlined underline-mask">ys</span>
+    <br><span class="underlined underline-overflow">Off</span></h1>
+    </div>
+    <script>
+    function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+    </script>
+</body>
+</html>
